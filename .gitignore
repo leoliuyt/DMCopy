@@ -64,3 +64,5 @@ iOSInjectionProject/
 IDEWorkspaceChecks.plist
 *.xcworkspacedata
 contents.xcworkspacedata
+*.pbxproj
+project.pbxproj

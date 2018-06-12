@@ -22,7 +22,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self test9];
+    [self test11];
 }
 
 - (void)test0{
@@ -175,6 +175,23 @@
     /*
      0x102f64108==0x102f64188
      0x102f64108==0x102f64188;hello==hello
+     */
+}
+
+- (void)test11
+{
+    NSNumber *number = @25; //number地址：0xb000000000000192，解释:b:NSNumber类型，25的16进制是19，2：整型
+    NSString *a = @"a"; // a的地址：0x10be1f340
+    NSString *b = [a mutableCopy]; // b的地址：0x6080002542b0
+    NSString *c = [b copy]; // c的地址：0xa000000000000611 为Tagged Pointer。"a"的ASCII码值为61（十六进制）
+    NSString *d = [a copy];
+    NSLog(@"\n number==%p\n a = %p;\n b = %p;\n c = %p;\n d = %p;\n",number,a,b,c,d);
+    /*
+     number==0xb000000000000192
+     a = 0x106763228;
+     b = 0x60400004b790;
+     c = 0xa000000000000611;
+     d = 0x106763228;
      */
 }
 
